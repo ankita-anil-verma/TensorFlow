@@ -1,0 +1,17 @@
+Tensorflow Representation for Weight Initialisation:
+
+Small random numbers:
+weights = tf.Variable(tf.random_normal([784, 200], stddev=0.35) name="weights")
+
+Calibrating the variances with 1/sqrt(n):
+shape = [784, 625]
+weights = tf.Variable(tf.random_normal(shape, stddev=0.01)/tf.sqrt(n))
+
+3.Sparse initialization
+https://www.tensorflow.org/api_guides/python/sparse_ops
+
+Initializing the biases:
+bias = tf.Variable(tf.random_normal([1,numLabels],
+mean=0,
+stddev=(np.sqrt(6/numFeatures+numLabels+1)),
+name="bias"))
